@@ -510,14 +510,14 @@ export default function LivePoseCamera() {
 
       {/* HEADER */}
 
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl mb-6 flex justify-between items-center">
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-6 flex justify-between items-center">
 
         <div>
-          <h2 className="text-2xl font-bold text-white mb-1">
+          <h2 className="text-2xl font-semibold text-slate-900 mb-1">
             Phase 12 — Live Pose Detection
           </h2>
 
-          <p className="text-slate-400 text-sm">
+          <p className="text-slate-500 text-sm">
             Real-time body tracking using
             TensorFlow.js and MoveNet.
           </p>
@@ -541,7 +541,7 @@ export default function LivePoseCamera() {
 
       {/* CAMERA AREA */}
 
-      <div className="relative bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center min-h-[440px]">
+      <div className="relative bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex items-center justify-center min-h-[440px]">
 
         {/* LOADING */}
 
@@ -550,7 +550,7 @@ export default function LivePoseCamera() {
 
             <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
 
-            <p className="text-slate-300 font-medium text-sm">
+            <p className="text-slate-600 font-medium text-sm">
               Loading MoveNet and camera...
             </p>
 
@@ -570,7 +570,7 @@ export default function LivePoseCamera() {
               ⚠️
             </div>
 
-            <h3 className="text-lg font-bold text-white mb-2">
+            <h3 className="text-lg font-semibold text-slate-900 mb-2">
               Camera / Model Error
             </h3>
 
@@ -619,7 +619,7 @@ export default function LivePoseCamera() {
         {poseCount === 0 &&
           !loading &&
           !errorMsg && (
-            <p className="text-slate-400 text-sm">
+            <p className="text-slate-500 text-sm">
               Waiting for a person...
             </p>
           )}
@@ -637,7 +637,7 @@ export default function LivePoseCamera() {
               "/athlete/dashboard"
             )
           }
-          className="bg-slate-800 hover:bg-slate-700 text-white font-semibold px-6 py-2.5 rounded-lg transition-colors cursor-pointer"
+          className="bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold px-6 py-2.5 rounded-lg transition-colors cursor-pointer"
         >
           ← Return to Dashboard
         </button>

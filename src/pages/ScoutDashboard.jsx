@@ -418,7 +418,7 @@ export default function ScoutDashboard() {
 
   const AthleteCard = ({ athlete }) => (
     <div
-      className="bg-slate-900 border border-slate-800 hover:border-blue-500/60 rounded-2xl p-6 shadow-xl transition-all relative overflow-hidden flex flex-col justify-between"
+      className="bg-white border border-slate-200 hover:border-blue-500/60 rounded-2xl p-6 shadow-sm transition-all relative overflow-hidden flex flex-col justify-between"
     >
       <div>
         {/* Header */}
@@ -438,12 +438,12 @@ export default function ScoutDashboard() {
               {/* CLICKABLE NAME */}
               <button
                 onClick={() => openAthleteProfile(athlete)}
-                className="text-lg font-bold text-white hover:text-blue-400 transition-colors cursor-pointer text-left"
+                className="text-lg font-semibold text-slate-900 hover:text-blue-400 transition-colors cursor-pointer text-left"
               >
                 {athlete.name}
               </button>
 
-              <p className="text-slate-400 text-xs">
+              <p className="text-slate-500 text-xs">
                 {athlete.sport} • {athlete.position} ({athlete.age} yrs)
               </p>
 
@@ -455,7 +455,7 @@ export default function ScoutDashboard() {
 
           {/* AI SCORE */}
           <div className="text-right">
-            <span className="text-2xl font-extrabold text-blue-400">
+            <span className="text-2xl font-semibold text-blue-400">
               {athlete.score}
             </span>
 
@@ -476,14 +476,14 @@ export default function ScoutDashboard() {
         )}
 
         {/* Performance Metrics */}
-        <div className="grid grid-cols-2 gap-3 text-xs bg-slate-950 p-3 rounded-lg border border-slate-800 mb-4">
+        <div className="grid grid-cols-2 gap-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200 mb-4">
 
           <div>
             <span className="block text-slate-500">
               10m Sprint Time
             </span>
 
-            <span className="font-bold text-slate-200">
+            <span className="font-bold text-slate-700">
               {athlete.sprintTime}
             </span>
           </div>
@@ -493,7 +493,7 @@ export default function ScoutDashboard() {
               Top Speed
             </span>
 
-            <span className="font-bold text-slate-200">
+            <span className="font-bold text-slate-700">
               {athlete.topSpeed}
             </span>
           </div>
@@ -512,7 +512,7 @@ export default function ScoutDashboard() {
             className={`font-medium py-2 rounded-lg text-sm transition-colors cursor-pointer ${
               isSaved(athlete.id)
                 ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 hover:bg-yellow-500/30'
-                : 'bg-slate-800 hover:bg-yellow-500/20 text-white hover:text-yellow-400'
+                : 'bg-slate-50 hover:bg-amber-50 text-slate-600 border border-slate-200'
             }`}
           >
             {isSaved(athlete.id)
@@ -526,7 +526,7 @@ export default function ScoutDashboard() {
             className={`font-medium py-2 rounded-lg text-sm transition-colors cursor-pointer ${
               isSelectedForCompare(athlete.id)
                 ? 'bg-blue-600 text-white'
-                : 'bg-slate-800 hover:bg-blue-600 text-white'
+                : 'bg-slate-50 hover:bg-blue-600 hover:text-white text-slate-600 border border-slate-200'
             }`}
           >
             {isSelectedForCompare(athlete.id)
@@ -539,7 +539,7 @@ export default function ScoutDashboard() {
         {/* FULL PROFILE */}
         <button
           onClick={() => openAthleteProfile(athlete)}
-          className="w-full bg-slate-800 hover:bg-blue-600 text-white font-medium py-2 rounded-lg text-sm transition-colors cursor-pointer"
+          className="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 rounded-lg text-sm transition-colors cursor-pointer"
         >
           👤 View Full Profile →
         </button>
@@ -553,7 +553,7 @@ export default function ScoutDashboard() {
   // ============================================================
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="">
 
       <div className="max-w-7xl mx-auto px-4 py-8">
 
@@ -561,21 +561,21 @@ export default function ScoutDashboard() {
             HEADER
         ==================================================== */}
 
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 mb-6 shadow-xl">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 mb-6 shadow-sm">
 
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
             <div>
 
-              <span className="bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full inline-block mb-3">
+              <span className="bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full inline-block mb-3">
                 Scout & Club Portal
               </span>
 
-              <h1 className="text-3xl font-extrabold text-white mb-2">
+              <h1 className="text-3xl font-semibold tracking-tight text-slate-900 mb-2">
                 Scout Dashboard
               </h1>
 
-              <p className="text-slate-400 text-sm">
+              <p className="text-slate-500 text-sm">
                 Search, save and compare AI-verified talent from registered athletes across India.
               </p>
 
@@ -585,7 +585,7 @@ export default function ScoutDashboard() {
 
             <div className="flex gap-3">
 
-              <div className="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-center">
+              <div className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-center">
                 <p className="text-xl font-bold text-blue-400">
                   {athletes.length}
                 </p>
@@ -595,7 +595,7 @@ export default function ScoutDashboard() {
                 </p>
               </div>
 
-              <div className="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-center">
+              <div className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-center">
                 <p className="text-xl font-bold text-yellow-400">
                   {savedAthletes.length}
                 </p>
@@ -605,7 +605,7 @@ export default function ScoutDashboard() {
                 </p>
               </div>
 
-              <div className="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-center">
+              <div className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-center">
                 <p className="text-xl font-bold text-purple-400">
                   {compareAthletes.length}
                 </p>
@@ -625,14 +625,14 @@ export default function ScoutDashboard() {
             NAVIGATION
         ==================================================== */}
 
-        <div className="bg-slate-900 border border-slate-800 rounded-xl p-2 mb-8 flex flex-wrap gap-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-2 mb-8 flex flex-wrap gap-2">
 
           <button
             onClick={() => setActiveSection('Athletes')}
             className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
               activeSection === 'Athletes'
                 ? 'bg-blue-600 text-white'
-                : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
             }`}
           >
             👥 Athletes
@@ -643,13 +643,13 @@ export default function ScoutDashboard() {
             className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
               activeSection === 'Saved'
                 ? 'bg-yellow-500 text-slate-950 font-semibold'
-                : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
             }`}
           >
             ⭐ Saved Athletes
 
             {savedAthletes.length > 0 && (
-              <span className="ml-2 bg-slate-950 text-yellow-400 px-2 py-0.5 rounded-full text-xs">
+              <span className="ml-2 bg-amber-50 text-amber-600 px-2 py-0.5 rounded-full text-xs">
                 {savedAthletes.length}
               </span>
             )}
@@ -660,7 +660,7 @@ export default function ScoutDashboard() {
             className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
               activeSection === 'Search'
                 ? 'bg-purple-600 text-white'
-                : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
             }`}
           >
             🔍 Search Talent
@@ -671,13 +671,13 @@ export default function ScoutDashboard() {
             className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
               activeSection === 'Compare'
                 ? 'bg-green-600 text-white'
-                : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
             }`}
           >
             ⚖ Compare
 
             {compareAthletes.length > 0 && (
-              <span className="ml-2 bg-slate-950 text-green-400 px-2 py-0.5 rounded-full text-xs">
+              <span className="ml-2 bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded-full text-xs">
                 {compareAthletes.length}
               </span>
             )}
@@ -693,7 +693,7 @@ export default function ScoutDashboard() {
           <>
 
             <div className="mb-6">
-              <h2 className="text-2xl font-bold text-white">
+              <h2 className="text-2xl font-semibold text-slate-900">
                 All Athletes
               </h2>
 
@@ -704,10 +704,10 @@ export default function ScoutDashboard() {
 
             {/* FILTERS */}
 
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-white border border-slate-200 rounded-xl p-5 mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
 
               <div>
-                <label className="block text-slate-400 text-xs font-medium mb-1">
+                <label className="block text-slate-500 text-xs font-medium mb-1">
                   Search Athlete / City
                 </label>
 
@@ -718,12 +718,12 @@ export default function ScoutDashboard() {
                   onChange={(e) =>
                     setSearchTerm(e.target.value)
                   }
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500"
+                  className="w-full bg-white border border-slate-200 rounded-lg px-4 py-2 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-blue-500"
                 />
               </div>
 
               <div>
-                <label className="block text-slate-400 text-xs font-medium mb-1">
+                <label className="block text-slate-500 text-xs font-medium mb-1">
                   Filter by Sport
                 </label>
 
@@ -732,7 +732,7 @@ export default function ScoutDashboard() {
                   onChange={(e) =>
                     setSelectedSport(e.target.value)
                   }
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white text-sm focus:outline-none focus:border-blue-500 cursor-pointer"
+                  className="w-full bg-white border border-slate-200 rounded-lg px-4 py-2 text-slate-900 text-sm focus:outline-none focus:border-blue-500 cursor-pointer"
                 >
                   <option value="All">
                     All Sports
@@ -753,7 +753,7 @@ export default function ScoutDashboard() {
               </div>
 
               <div>
-                <label className="block text-slate-400 text-xs font-medium mb-1">
+                <label className="block text-slate-500 text-xs font-medium mb-1">
                   Min. AI Performance Score ({minScore}+)
                 </label>
 
@@ -808,7 +808,7 @@ export default function ScoutDashboard() {
             </div>
 
             {filteredAthletes.length === 0 && (
-              <div className="text-center py-12 bg-slate-900 border border-slate-800 rounded-xl text-slate-500">
+              <div className="text-center py-12 bg-white border border-slate-200 rounded-xl text-slate-500">
                 <p className="text-lg mb-2">
                   No athletes found
                 </p>
@@ -830,7 +830,7 @@ export default function ScoutDashboard() {
           <>
 
             <div className="mb-6">
-              <h2 className="text-2xl font-bold text-white">
+              <h2 className="text-2xl font-semibold text-slate-900">
                 Search Talent
               </h2>
 
@@ -839,9 +839,9 @@ export default function ScoutDashboard() {
               </p>
             </div>
 
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 mb-8">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 mb-8">
 
-              <label className="block text-slate-400 text-sm font-medium mb-2">
+              <label className="block text-slate-500 text-sm font-medium mb-2">
                 Search Talent
               </label>
 
@@ -855,7 +855,7 @@ export default function ScoutDashboard() {
                   onChange={(e) =>
                     setSearchTerm(e.target.value)
                   }
-                  className="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500"
+                  className="flex-1 bg-white border border-slate-200 rounded-lg px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-purple-500"
                 />
 
                 <select
@@ -863,7 +863,7 @@ export default function ScoutDashboard() {
                   onChange={(e) =>
                     setSelectedSport(e.target.value)
                   }
-                  className="bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 cursor-pointer"
+                  className="bg-white border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-purple-500 cursor-pointer"
                 >
                   <option value="All">
                     All Sports
@@ -917,7 +917,7 @@ export default function ScoutDashboard() {
             </div>
 
             {filteredAthletes.length === 0 && (
-              <div className="text-center py-12 bg-slate-900 border border-slate-800 rounded-xl text-slate-500">
+              <div className="text-center py-12 bg-white border border-slate-200 rounded-xl text-slate-500">
                 No talent matches your search.
               </div>
             )}
@@ -935,7 +935,7 @@ export default function ScoutDashboard() {
             <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
 
               <div>
-                <h2 className="text-2xl font-bold text-white">
+                <h2 className="text-2xl font-semibold text-slate-900">
                   Saved Athletes
                 </h2>
 
@@ -949,7 +949,7 @@ export default function ScoutDashboard() {
                 {savedAthletes.length > 0 && (
                   <button
                     onClick={exportShortlist}
-                    className="bg-slate-800 hover:bg-slate-700 text-yellow-400 border border-yellow-500/30 px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer"
+                    className="bg-white hover:bg-slate-50 text-amber-600 border border-amber-200 px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer"
                   >
                     📥 Export Shortlist
                   </button>
@@ -975,13 +975,13 @@ export default function ScoutDashboard() {
 
               </div>
             ) : (
-              <div className="text-center py-16 bg-slate-900 border border-slate-800 rounded-2xl">
+              <div className="text-center py-16 bg-white border border-slate-200 rounded-2xl">
 
                 <div className="text-5xl mb-4">
                   ⭐
                 </div>
 
-                <h3 className="text-lg font-bold text-white mb-2">
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">
                   No Saved Athletes
                 </h3>
 
@@ -1014,7 +1014,7 @@ export default function ScoutDashboard() {
             <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
 
               <div>
-                <h2 className="text-2xl font-bold text-white">
+                <h2 className="text-2xl font-semibold text-slate-900">
                   Compare Athletes
                 </h2>
 
@@ -1035,13 +1035,13 @@ export default function ScoutDashboard() {
             </div>
 
             {compareAthletes.length === 0 ? (
-              <div className="text-center py-16 bg-slate-900 border border-slate-800 rounded-2xl">
+              <div className="text-center py-16 bg-white border border-slate-200 rounded-2xl">
 
                 <div className="text-5xl mb-4">
                   ⚖️
                 </div>
 
-                <h3 className="text-lg font-bold text-white mb-2">
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">
                   No Athletes Selected
                 </h3>
 
@@ -1069,7 +1069,7 @@ export default function ScoutDashboard() {
 
                     <div
                       key={athlete.id}
-                      className="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center justify-between"
+                      className="bg-white border border-slate-200 rounded-xl p-4 flex items-center justify-between"
                     >
 
                       <button
@@ -1085,7 +1085,7 @@ export default function ScoutDashboard() {
 
                         <div className="text-left">
 
-                          <p className="font-bold text-white text-sm hover:text-blue-400">
+                          <p className="font-semibold text-slate-900 text-sm hover:text-blue-400">
                             {athlete.name}
                           </p>
 
@@ -1115,11 +1115,11 @@ export default function ScoutDashboard() {
 
                 {/* Comparison Table */}
 
-                <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+                <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden">
 
-                  <div className="p-5 border-b border-slate-800">
+                  <div className="p-5 border-b border-slate-200">
 
-                    <h3 className="font-bold text-white">
+                    <h3 className="font-semibold text-slate-900">
                       Performance Comparison
                     </h3>
 
@@ -1135,7 +1135,7 @@ export default function ScoutDashboard() {
 
                       <thead>
 
-                        <tr className="bg-slate-950">
+                        <tr className="bg-slate-50">
 
                           <th className="text-left text-slate-500 font-medium px-5 py-4">
                             Metric
@@ -1145,7 +1145,7 @@ export default function ScoutDashboard() {
                             (athlete) => (
                               <th
                                 key={athlete.id}
-                                className="text-left text-white font-bold px-5 py-4 min-w-[160px]"
+                                className="text-left text-slate-900 font-semibold px-5 py-4 min-w-[160px]"
                               >
                                 {athlete.name}
                               </th>
@@ -1158,7 +1158,7 @@ export default function ScoutDashboard() {
 
                       <tbody>
 
-                        <tr className="border-t border-slate-800">
+                        <tr className="border-t border-slate-200">
                           <td className="px-5 py-4 text-slate-500 font-medium">
                             Sport
                           </td>
@@ -1167,7 +1167,7 @@ export default function ScoutDashboard() {
                             (athlete) => (
                               <td
                                 key={athlete.id}
-                                className="px-5 py-4 text-slate-200"
+                                className="px-5 py-4 text-slate-700"
                               >
                                 {athlete.sport}
                               </td>
@@ -1175,7 +1175,7 @@ export default function ScoutDashboard() {
                           )}
                         </tr>
 
-                        <tr className="border-t border-slate-800">
+                        <tr className="border-t border-slate-200">
                           <td className="px-5 py-4 text-slate-500 font-medium">
                             Position
                           </td>
@@ -1184,7 +1184,7 @@ export default function ScoutDashboard() {
                             (athlete) => (
                               <td
                                 key={athlete.id}
-                                className="px-5 py-4 text-slate-200"
+                                className="px-5 py-4 text-slate-700"
                               >
                                 {athlete.position}
                               </td>
@@ -1192,7 +1192,7 @@ export default function ScoutDashboard() {
                           )}
                         </tr>
 
-                        <tr className="border-t border-slate-800">
+                        <tr className="border-t border-slate-200">
                           <td className="px-5 py-4 text-slate-500 font-medium">
                             Age
                           </td>
@@ -1201,7 +1201,7 @@ export default function ScoutDashboard() {
                             (athlete) => (
                               <td
                                 key={athlete.id}
-                                className="px-5 py-4 text-slate-200"
+                                className="px-5 py-4 text-slate-700"
                               >
                                 {athlete.age} years
                               </td>
@@ -1209,7 +1209,7 @@ export default function ScoutDashboard() {
                           )}
                         </tr>
 
-                        <tr className="border-t border-slate-800">
+                        <tr className="border-t border-slate-200">
                           <td className="px-5 py-4 text-slate-500 font-medium">
                             Location
                           </td>
@@ -1218,7 +1218,7 @@ export default function ScoutDashboard() {
                             (athlete) => (
                               <td
                                 key={athlete.id}
-                                className="px-5 py-4 text-slate-200"
+                                className="px-5 py-4 text-slate-700"
                               >
                                 {athlete.location}
                               </td>
@@ -1226,7 +1226,7 @@ export default function ScoutDashboard() {
                           )}
                         </tr>
 
-                        <tr className="border-t border-slate-800">
+                        <tr className="border-t border-slate-200">
                           <td className="px-5 py-4 text-slate-500 font-medium">
                             AI Score
                           </td>
@@ -1237,7 +1237,7 @@ export default function ScoutDashboard() {
                                 key={athlete.id}
                                 className="px-5 py-4"
                               >
-                                <span className="text-xl font-extrabold text-blue-400">
+                                <span className="text-xl font-semibold text-blue-400">
                                   {athlete.score}
                                 </span>
 
@@ -1249,7 +1249,7 @@ export default function ScoutDashboard() {
                           )}
                         </tr>
 
-                        <tr className="border-t border-slate-800">
+                        <tr className="border-t border-slate-200">
                           <td className="px-5 py-4 text-slate-500 font-medium">
                             Speed
                           </td>
@@ -1258,7 +1258,7 @@ export default function ScoutDashboard() {
                             (athlete) => (
                               <td
                                 key={athlete.id}
-                                className="px-5 py-4 text-slate-200 font-semibold"
+                                className="px-5 py-4 text-slate-700 font-semibold"
                               >
                                 {athlete.speed}/100
                               </td>
@@ -1266,7 +1266,7 @@ export default function ScoutDashboard() {
                           )}
                         </tr>
 
-                        <tr className="border-t border-slate-800">
+                        <tr className="border-t border-slate-200">
                           <td className="px-5 py-4 text-slate-500 font-medium">
                             Agility
                           </td>
@@ -1275,7 +1275,7 @@ export default function ScoutDashboard() {
                             (athlete) => (
                               <td
                                 key={athlete.id}
-                                className="px-5 py-4 text-slate-200 font-semibold"
+                                className="px-5 py-4 text-slate-700 font-semibold"
                               >
                                 {athlete.agility}/100
                               </td>
@@ -1283,7 +1283,7 @@ export default function ScoutDashboard() {
                           )}
                         </tr>
 
-                        <tr className="border-t border-slate-800">
+                        <tr className="border-t border-slate-200">
                           <td className="px-5 py-4 text-slate-500 font-medium">
                             Jump
                           </td>
@@ -1292,7 +1292,7 @@ export default function ScoutDashboard() {
                             (athlete) => (
                               <td
                                 key={athlete.id}
-                                className="px-5 py-4 text-slate-200 font-semibold"
+                                className="px-5 py-4 text-slate-700 font-semibold"
                               >
                                 {athlete.jump}/100
                               </td>
@@ -1300,7 +1300,7 @@ export default function ScoutDashboard() {
                           )}
                         </tr>
 
-                        <tr className="border-t border-slate-800">
+                        <tr className="border-t border-slate-200">
                           <td className="px-5 py-4 text-slate-500 font-medium">
                             10m Sprint
                           </td>
@@ -1309,7 +1309,7 @@ export default function ScoutDashboard() {
                             (athlete) => (
                               <td
                                 key={athlete.id}
-                                className="px-5 py-4 text-slate-200 font-semibold"
+                                className="px-5 py-4 text-slate-700 font-semibold"
                               >
                                 {athlete.sprintTime}
                               </td>
@@ -1317,7 +1317,7 @@ export default function ScoutDashboard() {
                           )}
                         </tr>
 
-                        <tr className="border-t border-slate-800">
+                        <tr className="border-t border-slate-200">
                           <td className="px-5 py-4 text-slate-500 font-medium">
                             Top Speed
                           </td>
@@ -1326,7 +1326,7 @@ export default function ScoutDashboard() {
                             (athlete) => (
                               <td
                                 key={athlete.id}
-                                className="px-5 py-4 text-slate-200 font-semibold"
+                                className="px-5 py-4 text-slate-700 font-semibold"
                               >
                                 {athlete.topSpeed}
                               </td>
@@ -1334,7 +1334,7 @@ export default function ScoutDashboard() {
                           )}
                         </tr>
 
-                        <tr className="border-t border-slate-800">
+                        <tr className="border-t border-slate-200">
                           <td className="px-5 py-4 text-slate-500 font-medium">
                             Verification
                           </td>
@@ -1374,14 +1374,14 @@ export default function ScoutDashboard() {
       {selectedAthleteProfile && (
 
         <div
-          className="fixed inset-0 bg-slate-950/90 backdrop-blur-sm flex items-center justify-center p-4 z-50"
+          className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4 z-50"
           onClick={() =>
             setSelectedAthleteProfile(null)
           }
         >
 
           <div
-            className="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl"
+            className="bg-white border border-slate-200 rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-sm"
             onClick={(e) =>
               e.stopPropagation()
             }
@@ -1389,13 +1389,13 @@ export default function ScoutDashboard() {
 
             {/* PROFILE HEADER */}
 
-            <div className="sticky top-0 bg-slate-900 border-b border-slate-800 p-6 z-10">
+            <div className="sticky top-0 bg-white border-b border-slate-200 p-6 z-10">
 
               <button
                 onClick={() =>
                   setSelectedAthleteProfile(null)
                 }
-                className="absolute top-4 right-4 text-slate-400 hover:text-white text-2xl font-bold cursor-pointer"
+                className="absolute top-4 right-4 text-slate-500 hover:text-slate-900 text-2xl font-bold cursor-pointer"
               >
                 ×
               </button>
@@ -1412,7 +1412,7 @@ export default function ScoutDashboard() {
 
                   <div className="flex flex-wrap items-center gap-3">
 
-                    <h2 className="text-2xl font-extrabold text-white">
+                    <h2 className="text-2xl font-semibold text-slate-900">
                       {selectedAthleteProfile.name}
                     </h2>
 
@@ -1426,7 +1426,7 @@ export default function ScoutDashboard() {
 
                   </div>
 
-                  <p className="text-slate-400 text-sm mt-1">
+                  <p className="text-slate-500 text-sm mt-1">
                     {selectedAthleteProfile.sport} •{' '}
                     {selectedAthleteProfile.position} • U
                     {selectedAthleteProfile.age}
@@ -1440,9 +1440,9 @@ export default function ScoutDashboard() {
 
                 {/* SCORE */}
 
-                <div className="text-center bg-slate-950 border border-slate-800 rounded-xl px-5 py-3">
+                <div className="text-center bg-slate-50 border border-slate-200 rounded-xl px-5 py-3">
 
-                  <p className="text-3xl font-extrabold text-blue-400">
+                  <p className="text-3xl font-semibold text-blue-400">
                     {selectedAthleteProfile.score}
                   </p>
 
@@ -1472,7 +1472,7 @@ export default function ScoutDashboard() {
 
                   <div>
 
-                    <h3 className="text-white font-bold text-sm">
+                    <h3 className="text-slate-900 font-semibold text-sm">
                       Verified Athlete
                     </h3>
 
@@ -1492,13 +1492,13 @@ export default function ScoutDashboard() {
 
               <div>
 
-                <h3 className="text-lg font-bold text-white mb-3">
+                <h3 className="text-lg font-semibold text-slate-900 mb-3">
                   Athlete Overview
                 </h3>
 
-                <div className="bg-slate-950 border border-slate-800 rounded-xl p-4">
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
 
-                  <p className="text-slate-300 text-sm leading-relaxed">
+                  <p className="text-slate-600 text-sm leading-relaxed">
                     {selectedAthleteProfile.bio}
                   </p>
 
@@ -1512,7 +1512,7 @@ export default function ScoutDashboard() {
 
               <div>
 
-                <h3 className="text-lg font-bold text-white mb-3">
+                <h3 className="text-lg font-semibold text-slate-900 mb-3">
                   Performance Metrics
                 </h3>
 
@@ -1520,13 +1520,13 @@ export default function ScoutDashboard() {
 
                   {/* SPEED */}
 
-                  <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 text-center">
+                  <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
 
                     <p className="text-slate-500 text-xs uppercase">
                       Speed
                     </p>
 
-                    <p className="text-2xl font-extrabold text-blue-400 mt-1">
+                    <p className="text-2xl font-semibold text-blue-400 mt-1">
                       {selectedAthleteProfile.speed}
                     </p>
 
@@ -1538,13 +1538,13 @@ export default function ScoutDashboard() {
 
                   {/* AGILITY */}
 
-                  <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 text-center">
+                  <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
 
                     <p className="text-slate-500 text-xs uppercase">
                       Agility
                     </p>
 
-                    <p className="text-2xl font-extrabold text-purple-400 mt-1">
+                    <p className="text-2xl font-semibold text-purple-400 mt-1">
                       {selectedAthleteProfile.agility}
                     </p>
 
@@ -1556,13 +1556,13 @@ export default function ScoutDashboard() {
 
                   {/* JUMP */}
 
-                  <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 text-center">
+                  <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
 
                     <p className="text-slate-500 text-xs uppercase">
                       Jump
                     </p>
 
-                    <p className="text-2xl font-extrabold text-emerald-400 mt-1">
+                    <p className="text-2xl font-semibold text-emerald-400 mt-1">
                       {selectedAthleteProfile.jump}
                     </p>
 
@@ -1574,13 +1574,13 @@ export default function ScoutDashboard() {
 
                   {/* SPRINT */}
 
-                  <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 text-center">
+                  <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
 
                     <p className="text-slate-500 text-xs uppercase">
                       10m Sprint
                     </p>
 
-                    <p className="text-2xl font-extrabold text-white mt-1">
+                    <p className="text-2xl font-semibold text-slate-900 mt-1">
                       {selectedAthleteProfile.sprintTime}
                     </p>
 
@@ -1588,13 +1588,13 @@ export default function ScoutDashboard() {
 
                   {/* TOP SPEED */}
 
-                  <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 text-center">
+                  <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
 
                     <p className="text-slate-500 text-xs uppercase">
                       Top Speed
                     </p>
 
-                    <p className="text-xl font-extrabold text-white mt-1">
+                    <p className="text-xl font-semibold text-slate-900 mt-1">
                       {selectedAthleteProfile.topSpeed}
                     </p>
 
@@ -1614,7 +1614,7 @@ export default function ScoutDashboard() {
 
                   <div>
 
-                    <h3 className="text-lg font-bold text-white">
+                    <h3 className="text-lg font-semibold text-slate-900">
                       Performance History
                     </h3>
 
@@ -1637,7 +1637,7 @@ export default function ScoutDashboard() {
 
                       <div
                         key={index}
-                        className="bg-slate-950 border border-slate-800 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                        className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
                       >
 
                         <div className="flex items-center gap-3">
@@ -1648,7 +1648,7 @@ export default function ScoutDashboard() {
 
                           <div>
 
-                            <p className="text-white font-bold text-sm">
+                            <p className="text-slate-900 font-semibold text-sm">
                               {item.test}
                             </p>
 
@@ -1668,7 +1668,7 @@ export default function ScoutDashboard() {
                               Result
                             </p>
 
-                            <p className="text-white font-bold text-sm">
+                            <p className="text-slate-900 font-semibold text-sm">
                               {item.result}
                             </p>
 
@@ -1709,7 +1709,7 @@ export default function ScoutDashboard() {
 
                 <div className="mb-3">
 
-                  <h3 className="text-lg font-bold text-white">
+                  <h3 className="text-lg font-semibold text-slate-900">
                     Assessment Videos
                   </h3>
 
@@ -1726,7 +1726,7 @@ export default function ScoutDashboard() {
 
                       <div
                         key={index}
-                        className="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden"
+                        className="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden"
                       >
 
                         {/* VIDEO PREVIEW */}
@@ -1749,7 +1749,7 @@ export default function ScoutDashboard() {
 
                         <div className="p-3">
 
-                          <p className="text-white text-sm font-bold">
+                          <p className="text-slate-900 text-sm font-bold">
                             {video.title}
                           </p>
 
@@ -1771,7 +1771,7 @@ export default function ScoutDashboard() {
                                 `${video.title} video viewer will connect to the uploaded assessment video in the backend/storage phase.`
                               )
                             }
-                            className="w-full mt-3 bg-slate-800 hover:bg-blue-600 text-white text-xs font-semibold py-2 rounded-lg transition-colors cursor-pointer"
+                            className="w-full mt-3 bg-slate-50 hover:bg-blue-600 hover:text-white text-slate-700 text-xs font-semibold py-2 rounded-lg transition-colors cursor-pointer"
                           >
                             ▶ View Assessment
                           </button>
@@ -1791,7 +1791,7 @@ export default function ScoutDashboard() {
                   VERIFICATION
               ================================================= */}
 
-              <div className="bg-slate-950 border border-slate-800 rounded-xl p-4">
+              <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
 
                 <div className="flex items-center gap-3">
 
@@ -1801,7 +1801,7 @@ export default function ScoutDashboard() {
 
                   <div>
 
-                    <h3 className="text-white text-sm font-bold">
+                    <h3 className="text-slate-900 text-sm font-bold">
                       Assessment Verification
                     </h3>
 
@@ -1809,7 +1809,7 @@ export default function ScoutDashboard() {
                       Results verified using AI-assisted assessment pipeline.
                     </p>
 
-                    <p className="text-slate-400 text-xs mt-1">
+                    <p className="text-slate-500 text-xs mt-1">
                       Method: {selectedAthleteProfile.verifiedBy}
                     </p>
 
@@ -1833,7 +1833,7 @@ export default function ScoutDashboard() {
 
                     setSelectedAthleteProfile(null);
                   }}
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-colors cursor-pointer"
+                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors cursor-pointer"
                 >
                   📩 Send Official Inquiry
                 </button>
@@ -1849,7 +1849,7 @@ export default function ScoutDashboard() {
                       selectedAthleteProfile.id
                     )
                       ? 'bg-yellow-500/20 border border-yellow-500/30 text-yellow-400'
-                      : 'bg-slate-800 hover:bg-slate-700 text-white'
+                      : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'
                   }`}
                 >
                   {isSaved(
@@ -1863,7 +1863,7 @@ export default function ScoutDashboard() {
                   onClick={() =>
                     setSelectedAthleteProfile(null)
                   }
-                  className="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-6 py-3 rounded-xl transition-colors cursor-pointer"
+                  className="bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 font-bold px-6 py-3 rounded-xl transition-colors cursor-pointer"
                 >
                   Close
                 </button>

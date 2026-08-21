@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 
 export default function AppLayout() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-[#f4f6fb] text-slate-900 flex flex-col">
       <Navbar />
       <main className="flex-1 p-6 max-w-7xl mx-auto w-full">
         <Outlet />

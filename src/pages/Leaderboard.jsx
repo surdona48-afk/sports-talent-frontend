@@ -31,12 +31,12 @@ export default function Leaderboard() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* Header Banner */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 mb-8 shadow-xl text-center">
-        <span className="bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full inline-block mb-3">
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 mb-8 shadow-sm text-center">
+        <span className="bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full inline-block mb-3">
           🏆 National Talent Rankings
         </span>
-        <h1 className="text-3xl font-extrabold text-white mb-2">Athlete Leaderboard</h1>
-        <p className="text-slate-400 text-sm max-w-lg mx-auto">
+        <h1 className="text-3xl font-semibold tracking-tight text-slate-900 mb-2">Athlete Leaderboard</h1>
+        <p className="text-slate-500 text-sm max-w-lg mx-auto">
           Compare your verified AI fitness index and physical test scores against top regional performers.
         </p>
       </div>
@@ -50,7 +50,7 @@ export default function Leaderboard() {
             className={`px-4 py-2 rounded-xl text-sm font-semibold transition-colors cursor-pointer ${
               filterSport === sport
                 ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20'
-                : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white'
+                : 'bg-white border border-slate-200 text-slate-500 hover:text-slate-900'
             }`}
           >
             {sport}
@@ -59,44 +59,44 @@ export default function Leaderboard() {
       </div>
 
       {/* Rankings List */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl mb-8">
-        <div className="divide-y divide-slate-800">
+      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm mb-8">
+        <div className="divide-y divide-slate-100">
           {filteredList.map((athlete, index) => (
             <div
               key={athlete.id}
               className={`p-5 flex items-center justify-between transition-colors ${
-                athlete.name.includes('You') ? 'bg-blue-600/10 border-l-4 border-blue-500' : 'hover:bg-slate-800/40'
+                athlete.name.includes('You') ? 'bg-blue-600/10 border-l-4 border-blue-500' : 'hover:bg-slate-50'
               }`}
             >
               <div className="flex items-center gap-4">
                 <div
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center font-extrabold text-sm ${
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center font-semibold text-sm ${
                     index === 0
                       ? 'bg-amber-500/20 border border-amber-500 text-amber-400'
                       : index === 1
-                      ? 'bg-slate-300/20 border border-slate-300 text-slate-200'
+                      ? 'bg-slate-300/20 border border-slate-300 text-slate-700'
                       : index === 2
                       ? 'bg-amber-700/20 border border-amber-600 text-amber-500'
-                      : 'bg-slate-800 text-slate-400'
+                      : 'bg-slate-100 text-slate-500'
                   }`}
                 >
                   #{index + 1}
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-base flex items-center gap-2">
+                  <h3 className="text-slate-900 font-semibold text-base flex items-center gap-2">
                     {athlete.name}
-                    <span className="text-[10px] bg-slate-800 border border-slate-700 text-slate-300 px-2 py-0.5 rounded-full font-medium">
+                    <span className="text-[10px] bg-slate-50 border border-slate-200 text-slate-600 px-2 py-0.5 rounded-full font-medium">
                       {athlete.badge}
                     </span>
                   </h3>
-                  <p className="text-slate-400 text-xs">
+                  <p className="text-slate-500 text-xs">
                     {athlete.sport} • {athlete.position}
                   </p>
                 </div>
               </div>
 
               <div className="text-right">
-                <span className="text-2xl font-extrabold text-blue-400">{athlete.score}</span>
+                <span className="text-2xl font-semibold text-blue-400">{athlete.score}</span>
                 <span className="block text-[10px] text-slate-500 uppercase font-semibold">AI Index</span>
               </div>
             </div>
@@ -107,7 +107,7 @@ export default function Leaderboard() {
       <div className="flex justify-center">
         <button
           onClick={() => navigate('/athlete/dashboard')}
-          className="bg-slate-800 hover:bg-slate-700 text-white font-semibold px-6 py-2.5 rounded-lg transition-colors cursor-pointer"
+          className="bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold px-6 py-2.5 rounded-lg transition-colors cursor-pointer"
         >
           ← Return to Dashboard
         </button>

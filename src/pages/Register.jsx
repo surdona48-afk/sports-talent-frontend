@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { Eye, EyeOff, Lock, Mail, User } from 'lucide-react';
+import BrandMark from '../components/BrandMark';
+
+const field =
+  'w-full rounded-xl border border-slate-700/80 bg-[#111827] py-3 pl-11 pr-4 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-blue-500';
 
 export default function Register() {
   const navigate = useNavigate();
@@ -10,6 +15,7 @@ export default function Register() {
     role: 'athlete',
   });
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -42,82 +48,105 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-[85vh] flex items-center justify-center bg-slate-950 px-4 py-8">
-      <div className="bg-slate-900 border border-slate-800 p-8 rounded-xl shadow-xl w-full max-w-md">
-        <h2 className="text-2xl font-bold text-white text-center mb-2">Create an Account</h2>
-        <p className="text-slate-400 text-sm text-center mb-6">Join as an Athlete or a Talent Scout</p>
+    <div className="flex min-h-svh items-center justify-center bg-[#0b1220] px-4 py-10">
+      <div className="w-full max-w-[400px]">
+        <div className="mb-8 flex justify-center">
+          <BrandMark light />
+        </div>
+
+        <h1 className="text-center text-3xl font-semibold tracking-tight text-white">
+          Create account
+        </h1>
+        <p className="mt-2 text-center text-sm text-slate-400">
+          Join as an athlete or talent scout
+        </p>
 
         {error && (
-          <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-3 rounded text-sm mb-4 text-center">
+          <div className="mt-6 rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-center text-sm text-red-300">
             {error}
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-slate-300 text-sm mb-1 font-medium">Full Name</label>
+        <form onSubmit={handleSubmit} className="mt-8 space-y-4">
+          <div className="relative">
+            <User size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
             <input
               type="text"
               name="fullName"
               value={formData.fullName}
               onChange={handleChange}
-              placeholder="John Doe"
-              className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+              placeholder="Full name"
+              className={field}
               required
             />
           </div>
 
-          <div>
-            <label className="block text-slate-300 text-sm mb-1 font-medium">Email Address</label>
+          <div className="relative">
+            <Mail size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="user@example.com"
-              className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+              placeholder="Email"
+              className={field}
               required
             />
           </div>
 
-          <div>
-            <label className="block text-slate-300 text-sm mb-1 font-medium">Password</label>
+          <div className="relative">
+            <Lock size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               name="password"
               value={formData.password}
               onChange={handleChange}
-              placeholder="••••••••"
-              className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+              placeholder="Password"
+              className={`${field} pr-11`}
               required
             />
+            <button
+              type="button"
+              onClick={() => setShowPassword((v) => !v)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-500 hover:text-slate-300"
+              aria-label={showPassword ? 'Hide password' : 'Show password'}
+            >
+              {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+            </button>
           </div>
 
-          <div>
-            <label className="block text-slate-300 text-sm mb-1 font-medium font-medium">I am registering as</label>
-            <select
-              name="role"
-              value={formData.role}
-              onChange={handleChange}
-              className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 cursor-pointer"
-            >
-              <option value="athlete">Athlete / Player</option>
-              <option value="scout">Scout / Coach / Club</option>
-            </select>
+          <div className="grid grid-cols-2 gap-2 rounded-xl border border-slate-700/80 bg-[#111827] p-1">
+            {[
+              { value: 'athlete', label: 'Athlete' },
+              { value: 'scout', label: 'Scout' },
+            ].map((option) => (
+              <button
+                key={option.value}
+                type="button"
+                onClick={() => setFormData({ ...formData, role: option.value })}
+                className={`rounded-lg py-2.5 text-sm font-medium transition ${
+                  formData.role === option.value
+                    ? 'bg-blue-600 text-white'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {option.label}
+              </button>
+            ))}
           </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-lg transition-colors cursor-pointer"
+            className="w-full rounded-xl bg-blue-600 py-3 text-sm font-semibold text-white transition hover:bg-blue-500"
           >
-            Create Account
+            Sign Up
           </button>
         </form>
 
-        <p className="text-slate-400 text-sm text-center mt-6">
+        <p className="mt-6 text-center text-sm text-slate-400">
           Already have an account?{' '}
-          <Link to="/login" className="text-blue-400 hover:underline">
-            Sign in
+          <Link to="/login" className="font-semibold text-blue-400 hover:text-blue-300">
+            Login
           </Link>
         </p>
       </div>

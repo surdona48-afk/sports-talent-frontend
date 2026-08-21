@@ -109,7 +109,7 @@ export default function PrivacyConsent() {
     <div className="max-w-4xl mx-auto px-4 py-8">
 
       {/* Header */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 mb-6">
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 mb-6">
         <div className="flex items-center justify-between">
 
           <div>
@@ -117,11 +117,11 @@ export default function PrivacyConsent() {
               Privacy & Consent
             </span>
 
-            <h1 className="text-3xl font-extrabold text-white mt-2">
+            <h1 className="text-3xl font-semibold tracking-tight text-slate-900 mt-2">
               Your Privacy Controls
             </h1>
 
-            <p className="text-slate-400 text-sm mt-2">
+            <p className="text-slate-500 text-sm mt-2">
               Control who can discover your athlete profile.
             </p>
           </div>
@@ -134,13 +134,13 @@ export default function PrivacyConsent() {
       </div>
 
       {/* Profile Visibility */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 mb-6">
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 mb-6">
 
-        <h2 className="text-xl font-bold text-white mb-2">
+        <h2 className="text-xl font-semibold text-slate-900 mb-2">
           Profile Visibility
         </h2>
 
-        <p className="text-slate-400 text-sm mb-6">
+        <p className="text-slate-500 text-sm mb-6">
           Choose whether scouts can discover your athlete profile.
         </p>
 
@@ -149,7 +149,7 @@ export default function PrivacyConsent() {
           className={`block border rounded-xl p-5 mb-4 cursor-pointer transition ${
             visibility === "private"
               ? "border-blue-500 bg-blue-500/10"
-              : "border-slate-700 bg-slate-950"
+              : "border-slate-200 bg-slate-50"
           }`}
         >
 
@@ -166,11 +166,11 @@ export default function PrivacyConsent() {
             />
 
             <div>
-              <h3 className="text-white font-bold">
+              <h3 className="text-slate-900 font-semibold">
                 Private
               </h3>
 
-              <p className="text-slate-400 text-sm mt-1">
+              <p className="text-slate-500 text-sm mt-1">
                 Your profile will not appear in scout searches.
               </p>
             </div>
@@ -184,7 +184,7 @@ export default function PrivacyConsent() {
           className={`block border rounded-xl p-5 cursor-pointer transition ${
             visibility === "discoverable"
               ? "border-emerald-500 bg-emerald-500/10"
-              : "border-slate-700 bg-slate-950"
+              : "border-slate-200 bg-slate-50"
           }`}
         >
 
@@ -204,7 +204,7 @@ export default function PrivacyConsent() {
 
               <div className="flex items-center justify-between">
 
-                <h3 className="text-white font-bold">
+                <h3 className="text-slate-900 font-semibold">
                   Discoverable by Scouts
                 </h3>
 
@@ -216,7 +216,7 @@ export default function PrivacyConsent() {
 
               </div>
 
-              <p className="text-slate-400 text-sm mt-1">
+              <p className="text-slate-500 text-sm mt-1">
                 Scouts can find your profile through athlete search.
               </p>
 
@@ -240,11 +240,11 @@ export default function PrivacyConsent() {
 
             <div>
 
-              <h2 className="text-lg font-bold text-amber-300">
+              <h2 className="text-lg font-bold text-amber-800">
                 Guardian Consent Required
               </h2>
 
-              <p className="text-amber-200/70 text-sm mt-2">
+              <p className="text-amber-800/80 text-sm mt-2">
                 Your profile indicates that you are under 18.
                 Guardian consent is required before your profile
                 can become discoverable by scouts.
@@ -259,13 +259,13 @@ export default function PrivacyConsent() {
 
       {/* Guardian Section */}
       {isMinor && (
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 mb-6">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 mb-6">
 
-          <h2 className="text-xl font-bold text-white mb-2">
+          <h2 className="text-xl font-semibold text-slate-900 mb-2">
             Guardian Consent
           </h2>
 
-          <p className="text-slate-400 text-sm mb-6">
+          <p className="text-slate-500 text-sm mb-6">
             Enter your parent or guardian's details to request
             consent for scout discovery.
           </p>
@@ -273,7 +273,7 @@ export default function PrivacyConsent() {
           {/* Guardian Name */}
           <div className="mb-4">
 
-            <label className="block text-sm text-slate-300 mb-2">
+            <label className="block text-sm text-slate-600 mb-2">
               Guardian Name
             </label>
 
@@ -284,7 +284,7 @@ export default function PrivacyConsent() {
                 setGuardianName(e.target.value)
               }
               placeholder="Enter guardian name"
-              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white outline-none focus:border-blue-500"
+              className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 outline-none focus:border-blue-500"
             />
 
           </div>
@@ -292,7 +292,7 @@ export default function PrivacyConsent() {
           {/* Guardian Email */}
           <div className="mb-4">
 
-            <label className="block text-sm text-slate-300 mb-2">
+            <label className="block text-sm text-slate-600 mb-2">
               Guardian Email
             </label>
 
@@ -303,7 +303,7 @@ export default function PrivacyConsent() {
                 setGuardianEmail(e.target.value)
               }
               placeholder="guardian@example.com"
-              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white outline-none focus:border-blue-500"
+              className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 outline-none focus:border-blue-500"
             />
 
           </div>
@@ -320,7 +320,7 @@ export default function PrivacyConsent() {
               className="mt-1"
             />
 
-            <span className="text-sm text-slate-400">
+            <span className="text-sm text-slate-500">
               I confirm that I am requesting consent from my
               parent or legal guardian for my athlete profile
               to be discoverable by scouts.
@@ -330,7 +330,7 @@ export default function PrivacyConsent() {
 
           <button
             onClick={requestGuardianConsent}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition"
           >
             Request Guardian Consent
           </button>
@@ -340,14 +340,14 @@ export default function PrivacyConsent() {
 
       {/* Consent Status */}
       {isMinor && (
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 mb-6">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 mb-6">
 
-          <h2 className="text-lg font-bold text-white mb-4">
+          <h2 className="text-lg font-semibold text-slate-900 mb-4">
             Consent Status
           </h2>
 
           {consentStatus === "not_requested" && (
-            <div className="flex items-center gap-3 text-slate-400">
+            <div className="flex items-center gap-3 text-slate-500">
               <span>⚪</span>
               <span>Not requested</span>
             </div>
@@ -381,7 +381,7 @@ export default function PrivacyConsent() {
                   Guardian consent verified
                 </p>
 
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-slate-500 mt-1">
                   Scout discovery can now be enabled.
                 </p>
               </div>
@@ -393,13 +393,13 @@ export default function PrivacyConsent() {
       )}
 
       {/* Privacy information */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 mb-6">
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 mb-6">
 
-        <h2 className="text-lg font-bold text-white mb-3">
+        <h2 className="text-lg font-semibold text-slate-900 mb-3">
           How your information is used
         </h2>
 
-        <ul className="space-y-2 text-sm text-slate-400">
+        <ul className="space-y-2 text-sm text-slate-500">
 
           <li>
             • Your profile visibility controls whether scouts can discover you.
@@ -426,7 +426,7 @@ export default function PrivacyConsent() {
 
         <button
           onClick={() => navigate("/athlete/dashboard")}
-          className="bg-slate-800 hover:bg-slate-700 text-white font-semibold px-6 py-3 rounded-xl"
+          className="bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold px-6 py-3 rounded-xl"
         >
           ← Back to Dashboard
         </button>

@@ -70,17 +70,17 @@ export default function VerticalJumpCamera() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl mb-6 flex justify-between items-center">
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-6 flex justify-between items-center">
         <div>
-          <h2 className="text-2xl font-bold text-white mb-1">Vertical Jump Viewfinder</h2>
-          <p className="text-slate-400 text-sm">Stand side-on inside the vertical bounding box.</p>
+          <h2 className="text-2xl font-semibold text-slate-900 mb-1">Vertical Jump Viewfinder</h2>
+          <p className="text-slate-500 text-sm">Stand side-on inside the vertical bounding box.</p>
         </div>
         <span className="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30 uppercase">
           Status: {status}
         </span>
       </div>
 
-      <div className="relative bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center min-h-[420px]">
+      <div className="relative bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex items-center justify-center min-h-[420px]">
         <video ref={videoRef} autoPlay playsInline muted className="w-full h-auto max-h-[500px] object-cover -scale-x-100" />
 
         {cameraReady && status === 'idle' && (
@@ -95,7 +95,7 @@ export default function VerticalJumpCamera() {
 
         {status === 'countdown' && (
           <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center">
-            <span className="text-6xl font-extrabold text-blue-400 animate-pulse">{countdown}</span>
+            <span className="text-6xl font-semibold text-blue-400 animate-pulse">{countdown}</span>
           </div>
         )}
 
@@ -109,8 +109,8 @@ export default function VerticalJumpCamera() {
         {status === 'processing' && (
           <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-md flex flex-col items-center justify-center gap-3">
             <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-            <p className="text-white font-bold text-lg">AI Processing Frame Kinematics...</p>
-            <p className="text-slate-400 text-xs">Calculating apex displacement and flight duration</p>
+            <p className="text-slate-900 font-semibold text-lg">AI Processing Frame Kinematics...</p>
+            <p className="text-slate-500 text-xs">Calculating apex displacement and flight duration</p>
           </div>
         )}
       </div>
@@ -119,7 +119,7 @@ export default function VerticalJumpCamera() {
         <div className="mt-6 flex justify-center">
           <button
             onClick={startTestSequence}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg px-8 py-3.5 rounded-xl shadow-lg transition-all cursor-pointer"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-lg px-8 py-3.5 rounded-xl shadow-lg transition-all cursor-pointer"
           >
             Start Vertical Leap Assessment
           </button>

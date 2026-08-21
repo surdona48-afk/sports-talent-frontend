@@ -1,5 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ArrowLeft, Share2, Star } from 'lucide-react';
+import {
+  PolarAngleAxis,
+  PolarGrid,
+  PolarRadiusAxis,
+  Radar,
+  RadarChart,
+  ResponsiveContainer,
+} from 'recharts';
+
+const metrics = [
+  { metric: 'Speed', value: 90 },
+  { metric: 'Agility', value: 84 },
+  { metric: 'Endurance', value: 78 },
+  { metric: 'Strength', value: 82 },
+  { metric: 'Technique', value: 88 },
+];
 
 export default function SportTalentCard() {
   const navigate = useNavigate();
@@ -7,107 +24,125 @@ export default function SportTalentCard() {
 
   useEffect(() => {
     const savedProfile = localStorage.getItem('athleteProfile');
-    if (savedProfile) {
-      setProfile(JSON.parse(savedProfile));
-    }
+    if (savedProfile) setProfile(JSON.parse(savedProfile));
   }, []);
 
-  const athleteName = profile?.name || 'Rahul Das';
+  const athleteName = profile?.name || 'Arman Mallick';
   const primarySport = profile?.primarySport || 'Football';
-  const age = profile?.age ? `U${profile.age}` : 'U18';
+  const position = profile?.position || 'Midfielder';
+  const location = profile?.location || 'Kolkata, West Bengal';
+  const overall = Number(localStorage.getItem('overallAIScore')) || 87.4;
+  const initial = athleteName.charAt(0).toUpperCase();
+
+  const handleShare = async () => {
+    const text = `${athleteName} · ${primarySport} · Overall ${overall}/100`;
+    if (navigator.share) {
+      await navigator.share({ title: 'SportTalent Card', text });
+    } else {
+      await navigator.clipboard.writeText(text);
+      alert('Talent card summary copied.');
+    }
+  };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 flex flex-col items-center justify-center min-h-[80vh]">
-      {/* Top Banner */}
-      <div className="w-full text-center mb-8">
-        <span className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
-          Phase 19 Digital Talent Card
-        </span>
-        <h1 className="text-3xl font-extrabold text-white mt-2 mb-1">
-          Sport Talent Card
-        </h1>
-        <p className="text-slate-400 text-sm">
-          Official digital athletic passport and verified performance metrics.
-        </p>
-      </div>
-
-      {/* The Sport Talent Card */}
-      <div className="w-full max-w-md bg-gradient-to-b from-slate-900 via-slate-900 to-blue-950 border-2 border-amber-500/40 rounded-3xl p-8 shadow-2xl relative overflow-hidden mb-8">
-        {/* Card Background Glow */}
-        <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-amber-500/20 rounded-full blur-3xl pointer-events-none"></div>
-
-        {/* Card Header */}
-        <div className="flex justify-between items-start mb-6 relative z-10">
-          <div>
-            <span className="bg-blue-500/20 border border-blue-500/40 text-blue-400 text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full">
-              {primarySport}
-            </span>
-            <h2 className="text-2xl font-black text-white mt-3 tracking-wide">
-              {athleteName}
-            </h2>
-            <p className="text-slate-400 text-xs font-semibold mt-0.5">
-              {primarySport} | {age}
-            </p>
-          </div>
-
-          <div className="bg-slate-950/80 border border-amber-500/50 rounded-2xl p-3 text-center min-w-[70px] shadow-lg">
-            <span className="block text-[10px] text-amber-400 uppercase font-bold tracking-wider">Overall</span>
-            <span className="text-3xl font-black text-white">87</span>
-          </div>
-        </div>
-
-        {/* Attribute Breakdown */}
-        <div className="space-y-3 bg-slate-950/60 border border-slate-800 rounded-2xl p-4 mb-6 relative z-10">
-          <div className="flex justify-between items-center text-sm">
-            <span className="text-slate-300 font-medium flex items-center gap-2">
-              ⚡ Speed
-            </span>
-            <span className="font-extrabold text-blue-400 text-base">91</span>
-          </div>
-          <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-            <div className="bg-blue-500 h-full rounded-full" style={{ width: '91%' }}></div>
-          </div>
-
-          <div className="flex justify-between items-center text-sm pt-2">
-            <span className="text-slate-300 font-medium flex items-center gap-2">
-              🔄 Agility
-            </span>
-            <span className="font-extrabold text-blue-400 text-base">84</span>
-          </div>
-          <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-            <div className="bg-blue-500 h-full rounded-full" style={{ width: '84%' }}></div>
-          </div>
-
-          <div className="flex justify-between items-center text-sm pt-2">
-            <span className="text-slate-300 font-medium flex items-center gap-2">
-              💥 Jump
-            </span>
-            <span className="font-extrabold text-blue-400 text-base">88</span>
-          </div>
-          <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-            <div className="bg-blue-500 h-full rounded-full" style={{ width: '88%' }}></div>
-          </div>
-        </div>
-
-        {/* Verified Footer Badge */}
-        <div className="flex justify-center items-center relative z-10 pt-2 border-t border-slate-800/80">
-          <span className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            ✓ Verified Assessments
-          </span>
-        </div>
-      </div>
-
-      {/* Navigation Buttons */}
-      <div className="flex justify-center gap-4">
+    <div className="mx-auto max-w-2xl px-4 py-6 sm:py-8">
+      <div className="mb-5 flex items-center justify-between">
         <button
-          onClick={() => navigate('/athlete/dashboard')}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-xl transition-all cursor-pointer shadow-lg"
+          type="button"
+          onClick={() => navigate(-1)}
+          className="flex h-10 w-10 items-center justify-center rounded-full text-slate-700"
+          aria-label="Back"
         >
-          Return to Dashboard →
+          <ArrowLeft size={20} />
+        </button>
+        <h1 className="text-base font-semibold text-slate-900">Talent Card</h1>
+        <button
+          type="button"
+          onClick={handleShare}
+          className="flex h-10 w-10 items-center justify-center rounded-full text-slate-700"
+          aria-label="Share"
+        >
+          <Share2 size={18} />
         </button>
       </div>
+
+      <section className="mb-5 overflow-hidden rounded-3xl bg-[#0f2744] p-6 text-white shadow-[0_16px_40px_rgba(15,39,68,0.28)]">
+        <div className="flex items-center gap-4">
+          <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-white/20 bg-white/10 text-2xl font-semibold">
+            {initial}
+          </div>
+          <div>
+            <h2 className="text-xl font-semibold tracking-tight">{athleteName}</h2>
+            <p className="mt-0.5 text-sm text-slate-300">
+              {primarySport} • {position}
+            </p>
+            <p className="text-xs text-slate-400">{location}</p>
+          </div>
+        </div>
+        <div className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-300">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+          Verified Athlete
+        </div>
+      </section>
+
+      <section className="mb-5 flex items-center justify-between rounded-2xl border border-slate-200/80 bg-white px-5 py-4">
+        <div>
+          <p className="text-xs font-medium uppercase tracking-wide text-slate-400">Overall Score</p>
+          <p className="mt-1 text-2xl font-semibold text-slate-900">{overall} / 100</p>
+        </div>
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-900 px-3 py-1.5 text-xs font-semibold text-amber-300">
+          <Star size={12} fill="currentColor" />
+          Highly Potential
+        </span>
+      </section>
+
+      <section className="mb-5 rounded-2xl border border-slate-200/80 bg-white p-5">
+        <h3 className="mb-2 text-sm font-semibold text-slate-900">Performance Overview</h3>
+        <div className="h-72">
+          <ResponsiveContainer width="100%" height="100%">
+            <RadarChart data={metrics} cx="50%" cy="50%" outerRadius="70%">
+              <PolarGrid stroke="#e2e8f0" />
+              <PolarAngleAxis dataKey="metric" tick={{ fill: '#64748b', fontSize: 12 }} />
+              <PolarRadiusAxis domain={[0, 100]} tick={false} axisLine={false} />
+              <Radar
+                dataKey="value"
+                stroke="#2563eb"
+                fill="#2563eb"
+                fillOpacity={0.18}
+                strokeWidth={2}
+              />
+            </RadarChart>
+          </ResponsiveContainer>
+        </div>
+        <div className="mt-1 grid grid-cols-5 gap-2 text-center">
+          {metrics.map((item) => (
+            <div key={item.metric}>
+              <p className="text-sm font-semibold text-slate-900">{item.value}</p>
+              <p className="text-[10px] text-slate-500">{item.metric}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h3 className="mb-3 text-sm font-semibold text-slate-900">Recent Assessments</h3>
+        <div className="space-y-2">
+          {[
+            { name: '10m Sprint', score: '8.7', label: 'Excellent' },
+            { name: 'Vertical Jump', score: '8.2', label: 'Strong' },
+          ].map((item) => (
+            <div
+              key={item.name}
+              className="flex items-center justify-between rounded-2xl border border-slate-200/80 bg-white px-4 py-3.5"
+            >
+              <p className="text-sm font-medium text-slate-800">{item.name}</p>
+              <p className="text-sm font-semibold text-emerald-600">
+                {item.score} <span className="font-medium">{item.label}</span>
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

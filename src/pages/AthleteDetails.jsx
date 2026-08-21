@@ -61,19 +61,19 @@ export default function AthleteDetails() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white px-6 py-8">
+    <div className="px-6 py-8">
       <div className="max-w-6xl mx-auto">
 
         {/* BACK BUTTON */}
         <button
           onClick={() => navigate("/scout/athletes")}
-          className="mb-6 text-slate-400 hover:text-white transition"
+          className="mb-6 text-slate-500 hover:text-slate-900 transition"
         >
           ← Back to Athletes
         </button>
 
         {/* PROFILE HEADER */}
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 mb-6">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 mb-6">
 
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
 
@@ -81,7 +81,7 @@ export default function AthleteDetails() {
             <div className="flex items-center gap-5">
 
               {/* AVATAR */}
-              <div className="w-20 h-20 rounded-full bg-blue-600 flex items-center justify-center text-2xl font-bold">
+              <div className="w-20 h-20 rounded-full bg-blue-600 flex items-center justify-center text-2xl font-semibold text-white">
                 RD
               </div>
 
@@ -98,15 +98,15 @@ export default function AthleteDetails() {
                   )}
                 </div>
 
-                <p className="text-slate-400 mt-2">
+                <p className="text-slate-500 mt-2">
                   {athlete.sport} • {athlete.ageGroup} • {athlete.location}
                 </p>
               </div>
             </div>
 
             {/* OVERALL SCORE */}
-            <div className="text-center bg-slate-950 border border-slate-800 rounded-xl px-8 py-5">
-              <p className="text-sm text-slate-400">
+            <div className="text-center bg-slate-50 border border-slate-200 rounded-xl px-8 py-5">
+              <p className="text-sm text-slate-500">
                 Overall Score
               </p>
 
@@ -143,7 +143,7 @@ export default function AthleteDetails() {
         </div>
 
         {/* PERFORMANCE HISTORY */}
-        <section className="bg-slate-900 border border-slate-800 rounded-2xl p-6 mb-6">
+        <section className="bg-white border border-slate-200 rounded-2xl p-6 mb-6">
 
           <div className="flex items-center justify-between mb-5">
             <div>
@@ -151,7 +151,7 @@ export default function AthleteDetails() {
                 Performance History
               </h2>
 
-              <p className="text-sm text-slate-400 mt-1">
+              <p className="text-sm text-slate-500 mt-1">
                 Previous athletic assessments
               </p>
             </div>
@@ -163,7 +163,7 @@ export default function AthleteDetails() {
 
               <div
                 key={index}
-                className="flex items-center justify-between bg-slate-950 border border-slate-800 rounded-xl p-4"
+                className="flex items-center justify-between bg-slate-50 border border-slate-200 rounded-xl p-4"
               >
 
                 <div>
@@ -194,14 +194,14 @@ export default function AthleteDetails() {
         </section>
 
         {/* ASSESSMENT VIDEOS */}
-        <section className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <section className="bg-white border border-slate-200 rounded-2xl p-6">
 
           <div className="mb-5">
             <h2 className="text-xl font-bold">
               Assessment Videos
             </h2>
 
-            <p className="text-sm text-slate-400 mt-1">
+            <p className="text-sm text-slate-500 mt-1">
               Recorded performance assessments
             </p>
           </div>
@@ -212,11 +212,11 @@ export default function AthleteDetails() {
 
               <div
                 key={index}
-                className="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden hover:border-slate-700 transition"
+                className="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden hover:border-slate-200 transition"
               >
 
                 {/* VIDEO PLACEHOLDER */}
-                <div className="h-40 bg-slate-800 flex items-center justify-center">
+                <div className="h-40 bg-slate-100 flex items-center justify-center">
 
                   <button
                     className="w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-500 flex items-center justify-center transition"
@@ -259,11 +259,11 @@ export default function AthleteDetails() {
 
 function StatCard({ title, value }) {
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+    <div className="bg-white border border-slate-200 rounded-2xl p-6">
 
       <div className="flex items-center justify-between">
 
-        <p className="text-slate-400">
+        <p className="text-slate-500">
           {title}
         </p>
 
@@ -286,7 +286,7 @@ function StatCard({ title, value }) {
       </div>
 
       {/* PROGRESS BAR */}
-      <div className="mt-4 h-2 bg-slate-800 rounded-full overflow-hidden">
+      <div className="mt-4 h-2 bg-slate-100 rounded-full overflow-hidden">
 
         <div
           className="h-full bg-blue-500 rounded-full"
